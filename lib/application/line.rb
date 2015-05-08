@@ -7,10 +7,10 @@ class Application::Line
   end
 
   def length
-    diff_x = ((@point_a.first - @point_b.first)).abs
-    diff_x += 1 unless @point_a.first == 0 || @point_b.first == 0 || @point_a.first == @point_b.first
-    diff_y = ((@point_a.last - @point_b.last)).abs
-    diff_y += 1 unless @point_a.last == 0 || @point_b.last == 0 || @point_a.last == @point_b.last
+    diff_x = ((@point_a.x - @point_b.x)).abs
+    diff_x += 1 unless @point_a.x == 0 || @point_b.x == 0 || @point_a.x == @point_b.x
+    diff_y = ((@point_a.y - @point_b.y)).abs
+    diff_y += 1 unless @point_a.y == 0 || @point_b.y == 0 || @point_a.y == @point_b.y
     Math.sqrt((diff_x ** 2) + (diff_y ** 2))
   end
 
