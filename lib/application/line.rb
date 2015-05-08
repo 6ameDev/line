@@ -1,16 +1,16 @@
-# This class has points as its state and it returns a length
+# This class has coordinates as its state and it returns a length
 class Application::Line
-  attr_reader :point_a, :point_b
-  def initialize(point_1, point_2)
-    @point_a = point_1
-    @point_b = point_2
+  attr_reader :coordinate_a, :coordinate_b
+  def initialize(coordinate_1, coordinate_2)
+    @coordinate_a = coordinate_1
+    @coordinate_b = coordinate_2
   end
 
   def length
-    diff_x = ((@point_a.x - @point_b.x)).abs
-    diff_x += 1 unless @point_a.x == 0 || @point_b.x == 0 || @point_a.x == @point_b.x
-    diff_y = ((@point_a.y - @point_b.y)).abs
-    diff_y += 1 unless @point_a.y == 0 || @point_b.y == 0 || @point_a.y == @point_b.y
+    diff_x = ((@coordinate_a.x - @coordinate_b.x)).abs
+    diff_x += 1 unless @coordinate_a.x == 0 || @coordinate_b.x == 0 || @coordinate_a.x == @coordinate_b.x
+    diff_y = ((@coordinate_a.y - @coordinate_b.y)).abs
+    diff_y += 1 unless @coordinate_a.y == 0 || @coordinate_b.y == 0 || @coordinate_a.y == @coordinate_b.y
     Math.sqrt((diff_x ** 2) + (diff_y ** 2))
   end
 
@@ -18,8 +18,8 @@ class Application::Line
     return true if self.equal?(other)
     return false if other.nil?
     return false unless self.class == other.class
-    (@point_a == other.point_a && @point_b == other.point_b) ||
-      (@point_a == other.point_b && @point_b == other.point_a)
+    (@coordinate_a == other.coordinate_a && @coordinate_b == other.coordinate_b) ||
+      (@coordinate_a == other.coordinate_b && @coordinate_b == other.coordinate_a)
   end
 
   def ==(other)
@@ -27,6 +27,6 @@ class Application::Line
   end
 
   def hash
-    @point_a.hash ^ @point_b.hash
+    @coordinate_a.hash ^ @coordinate_b.hash
   end
 end

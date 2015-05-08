@@ -3,32 +3,32 @@ require 'spec_helper'
 describe Application::Line do
   context '#length' do
     it 'should return length as 6' do
-      point_1 = Application::Coordinate.new(1, 0)
-      point_2 = Application::Coordinate.new(6, 0)
-      line = Application::Line.new(point_1, point_2)
+      coordinate_1 = Application::Coordinate.new(1, 0)
+      coordinate_2 = Application::Coordinate.new(6, 0)
+      line = Application::Line.new(coordinate_1, coordinate_2)
       expect(line.length).to eq(6)
     end
 
     it 'should return length as 5' do
-      point_1 = Application::Coordinate.new(1, 0)
-      point_2 = Application::Coordinate.new(4, 3)
-      line = Application::Line.new(point_1, point_2)
+      coordinate_1 = Application::Coordinate.new(1, 0)
+      coordinate_2 = Application::Coordinate.new(4, 3)
+      line = Application::Line.new(coordinate_1, coordinate_2)
       expect(line.length).to eq(5)
     end
 
     it 'should return length as 8' do
-      point_1 = Application::Coordinate.new(1, 5)
-      point_2 = Application::Coordinate.new(8, 5)
-      line = Application::Line.new(point_1, point_2)
+      coordinate_1 = Application::Coordinate.new(1, 5)
+      coordinate_2 = Application::Coordinate.new(8, 5)
+      line = Application::Line.new(coordinate_1, coordinate_2)
       expect(line.length).to eq(8)
     end
   end
 
   context '#equality' do
     before(:each) do
-      point_1 = Application::Coordinate.new(1, 0)
-      point_2 = Application::Coordinate.new(5, 0)
-      @line = Application::Line.new(point_1, point_2)
+      coordinate_1 = Application::Coordinate.new(1, 0)
+      coordinate_2 = Application::Coordinate.new(5, 0)
+      @line = Application::Line.new(coordinate_1, coordinate_2)
     end
 
     context '#equal' do
@@ -37,39 +37,39 @@ describe Application::Line do
       end
 
       it 'should be equal to similar line' do
-        point_1 = Application::Coordinate.new(1, 0)
-        point_2 = Application::Coordinate.new(5, 0)
-        new_line = Application::Line.new(point_1, point_2)
+        coordinate_1 = Application::Coordinate.new(1, 0)
+        coordinate_2 = Application::Coordinate.new(5, 0)
+        new_line = Application::Line.new(coordinate_1, coordinate_2)
         expect(@line).to eq(new_line)
       end
 
-      it 'should be equal to line with swapped points' do
-        point_1 = Application::Coordinate.new(5, 0)
-        point_2 = Application::Coordinate.new(1, 0)
-        new_line = Application::Line.new(point_1, point_2)
+      it 'should be equal to line with swapped coordinates' do
+        coordinate_1 = Application::Coordinate.new(5, 0)
+        coordinate_2 = Application::Coordinate.new(1, 0)
+        new_line = Application::Line.new(coordinate_1, coordinate_2)
         expect(@line).to eq(new_line)
       end
 
       it 'should have equal hash' do
-        point_1 = Application::Coordinate.new(5, 0)
-        point_2 = Application::Coordinate.new(1, 0)
-        new_line = Application::Line.new(point_1, point_2)
+        coordinate_1 = Application::Coordinate.new(5, 0)
+        coordinate_2 = Application::Coordinate.new(1, 0)
+        new_line = Application::Line.new(coordinate_1, coordinate_2)
         expect(@line.hash).to eq(new_line.hash)
       end
     end
 
     context '#not equal' do
       it 'should not be equal to different line' do
-        point_1 = Application::Coordinate.new(4, 7)
-        point_2 = Application::Coordinate.new(3, 9)
-        new_line = Application::Line.new(point_1, point_2)
+        coordinate_1 = Application::Coordinate.new(4, 7)
+        coordinate_2 = Application::Coordinate.new(3, 9)
+        new_line = Application::Line.new(coordinate_1, coordinate_2)
         expect(@line).to_not eq(new_line)
       end
 
       it 'should not be equal to different line with same length' do
-        point_1 = Application::Coordinate.new(1, 1)
-        point_2 = Application::Coordinate.new(5, 1)
-        new_line = Application::Line.new(point_1, point_2)
+        coordinate_1 = Application::Coordinate.new(1, 1)
+        coordinate_2 = Application::Coordinate.new(5, 1)
+        new_line = Application::Line.new(coordinate_1, coordinate_2)
         expect(@line).to_not eq(new_line)
       end
 
