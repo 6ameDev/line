@@ -5,4 +5,20 @@ class Application::Coordinate
     @x = x
     @y = y
   end
+
+  def eql?(other)
+    return true if self.equal?(other)
+    if(other.nil? || other.class != self.class)
+      return false
+    end
+    @x == other.x && @y == other.y
+  end
+
+  def ==(other)
+    self.eql?(other)
+  end
+
+  def hash
+    @x.hash ^ @y.hash
+  end
 end
