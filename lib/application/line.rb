@@ -7,8 +7,7 @@ class Application::Line
   end
 
   def length
-    Math.sqrt((@coordinate_a.delta_x(@coordinate_b) ** 2) +
-              (@coordinate_a.delta_y(@coordinate_b) ** 2))
+    @coordinate_a.distance_from(@coordinate_b)
   end
 
   def eql?(other)
