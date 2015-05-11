@@ -37,4 +37,17 @@ describe Application::Coordinate do
       end
     end
   end
+
+  context '#difference' do
+    let(:coordinate_1) { Application::Coordinate.new(1, 9) }
+    let(:coordinate_2) { Application::Coordinate.new(10, 5) }
+
+    it 'should calculate the difference in x axis' do
+      expect(coordinate_1.delta_x(coordinate_2)).to eq(10)
+    end
+
+    it 'should calculate the difference in y axis' do
+      expect(coordinate_1.delta_y(coordinate_2)).to eq(5)
+    end
+  end
 end

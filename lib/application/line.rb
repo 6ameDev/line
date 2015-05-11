@@ -7,11 +7,8 @@ class Application::Line
   end
 
   def length
-    diff_x = ((@coordinate_a.x - @coordinate_b.x)).abs
-    diff_x += 1 unless @coordinate_a.x == 0 || @coordinate_b.x == 0 || @coordinate_a.x == @coordinate_b.x
-    diff_y = ((@coordinate_a.y - @coordinate_b.y)).abs
-    diff_y += 1 unless @coordinate_a.y == 0 || @coordinate_b.y == 0 || @coordinate_a.y == @coordinate_b.y
-    Math.sqrt((diff_x ** 2) + (diff_y ** 2))
+    Math.sqrt((@coordinate_a.delta_x(@coordinate_b) ** 2) +
+              (@coordinate_a.delta_y(@coordinate_b) ** 2))
   end
 
   def eql?(other)
